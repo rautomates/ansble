@@ -1,0 +1,9 @@
+# This playook copies all files in current folder to the /tmp folder. 
+# It sets the root as owner and set file permissio mode as 666. The host os is assumed as centos
+- hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: copyfiles 
+      copy: src={{ item }} dest=/tmp/ owner=root mode=666
+      with_fileglob: ./*

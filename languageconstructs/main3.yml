@@ -1,0 +1,15 @@
+- hosts: anode
+  remote_user: vibhu
+  become: true
+  vars:
+    mylist:
+      - msgvar
+      - lists
+      - alphabets
+  tasks:  
+  - name: DebugMessage
+    debug:
+      msg: "{{ mylist[1] }}"
+  - name: DebugMessage1
+    debug:
+      msg: "{{ mylist.0 }}"

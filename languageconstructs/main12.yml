@@ -1,0 +1,8 @@
+- hosts: anode
+  remote_user: vibhu
+  become: true
+
+  tasks:  
+  - name: DebugMessage
+    debug:
+      msg: "{{ jpa_course }}"

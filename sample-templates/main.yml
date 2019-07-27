@@ -1,0 +1,31 @@
+- hosts: anode
+  remote_user: vibhu
+  become: true
+  vars:
+    my_name: Billa
+    usrs:
+      - Windows
+      - Linux
+      - Unix
+      - Solaris
+  tasks:
+    - name: Apache install
+      yum: 
+        name: httpd
+        state: latest
+    - name: copy templates
+      template: 
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        owner: apache
+      with_items:
+          - src: indx.j2
+            dest: /var/www/html/index.html
+          - src: jpa.j2
+            dest: /var/www/html/jpa.html
+      notify:
+        - restart apache
+
+  handlers:
+    - name: restart apache
+      service: name=httpd state=restarted

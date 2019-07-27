@@ -1,0 +1,9 @@
+- hosts: all
+  remote_user: vibhu
+  become: true
+  vars:
+    msg_var: hiWelcome
+  tasks:  
+  - name: DebugMessage
+    debug:
+      msg: "{{ msg_var }}"

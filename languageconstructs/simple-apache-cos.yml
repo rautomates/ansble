@@ -1,0 +1,9 @@
+# This playbook installs the apache server in the centos. The logged-in user will become root 
+- hosts: webservers
+  become: true
+
+  tasks:
+    - name: Apache install
+      yum: 
+        name: httpd
+        state: latest

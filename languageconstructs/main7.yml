@@ -1,0 +1,11 @@
+- hosts: anode
+  remote_user: vibhu
+  gather_facts: false
+  become: true
+  vars_prompt:
+    - name: userid 
+      private: false
+  tasks:  
+  - name: DebugMessage
+    debug:
+      msg: "{{ userid }}"

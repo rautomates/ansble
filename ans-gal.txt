@@ -1,0 +1,5 @@
+ansible-galaxy init apache
+ansible-galaxy install devalto.mysql
+ansible-galaxy info devalto.mysql
+ansible-galaxy search mysql
+ansible-galaxy remove devalto.mysql

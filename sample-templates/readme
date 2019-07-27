@@ -1,0 +1,1 @@
+This playbook to demo the handlers sample. The tasks and handlers are defined in a separate files and included in the main.yml file

@@ -1,0 +1,14 @@
+# This playbook displays the values of the list that are in the form of matrix 3X3
+- hosts: all
+  
+  vars:
+    listvar1:
+    - 'Kubernetes'
+    - 'OpenShift'
+    - 'Mesos'
+  tasks:
+    - shell: echo "nested test a={{ item[0] }} b={{ item[1] }} c={{ item[2] }}"
+      with_nested:
+        - "{{ listvar1 }}"
+        - [ 'red', 'blue', 'green']
+        - [ 'up', 'down', 'side']

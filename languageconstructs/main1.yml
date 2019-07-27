@@ -1,0 +1,12 @@
+- hosts: anode
+  remote_user: vibhu
+  become: true
+  vars:
+    dict:
+      msg_var: hiWelcome
+      abc: alphabets
+      lists: items
+  tasks:  
+    - name: DebugMessage
+      debug:
+        msg: "{{ dict }}"

@@ -1,0 +1,9 @@
+- hosts: myservers
+  become: true
+  tasks: 
+    - name: Run a shell command
+      raw: ls -l /home/vibhu
+      register: mop
+
+    - debug:
+        msg: "{{ mop.stdout_lines }}"
